@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Search - Internship Management</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="../public/images/logo.png" alt="Internship Management Logo" class="logo">
+        <h1>Internship Management System</h1>
+        <nav>
+            <a href="dashboard.html">Home</a>
+            <a href="internships.html">Browse Internships</a>
+            <a href="applications.html">My Applications</a>
+            <a href="profile.html">Profile</a>
+            <a href="#" id="logout">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Browse Internships</h2>
+        <section class="auth-form">
+            <form id="search-form" onsubmit="searchInternships(event)">
+                <label for="domain">Domain:</label>
+                <input type="text" id="domain" name="domain">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location">
+                <label for="salary">Min Salary:</label>
+                <input type="number" id="salary" name="salary">
+                <button type="submit">Search</button>
+            </form>
+            <div id="internship-list">
+                <!-- Dynamic internships will be inserted here -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Internship Management System</p>
+    </footer>
+    <script src="../public/js/auth.js"></script>
+</body>
+</html>

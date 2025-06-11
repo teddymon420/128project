@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Management - Internship Management</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="../public/images/logo.png" alt="Internship Management Logo" class="logo">
+        <h1>Internship Management System</h1>
+        <nav>
+            <a href="dashboard.html">Home</a>
+            <a href="internship-management.html">Manage Internships</a>
+            <a href="applications.html">View Applications</a>
+            <a href="account.html">Account</a>
+            <a href="#" id="logout">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Manage Internships</h2>
+        <section class="auth-form">
+            <form id="internship-form" onsubmit="manageInternship(event)">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+                <label for="type">Type:</label>
+                <select id="type" name="type" required>
+                    <option value="remote">Remote</option>
+                    <option value="on-site">On-site</option>
+                </select>
+                <label for="skills">Skills Required:</label>
+                <input type="text" id="skills" name="skills" required>
+                <label for="salary">Salary:</label>
+                <input type="number" id="salary" name="salary" required>
+                <label for="duration">Duration (weeks):</label>
+                <input type="number" id="duration" name="duration" required>
+                <label for="deadline">Deadline:</label>
+                <input type="date" id="deadline" name="deadline" required>
+                <button type="submit">Create Internship</button>
+            </form>
+            <div id="internship-list">
+                <!-- Dynamic internships will be inserted here -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Internship Management System</p>
+    </footer>
+    <script src="../public/js/auth.js"></script>
+</body>
+</html>

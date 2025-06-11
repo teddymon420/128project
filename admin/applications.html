@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications Management - Internship Management</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="../public/images/logo.png" alt="Internship Management Logo" class="logo">
+        <h1>Internship Management System</h1>
+        <nav>
+            <a href="dashboard.html">Home</a>
+            <a href="internship-management.html">Manage Internships</a>
+            <a href="applications.html">View Applications</a>
+            <a href="account.html">Account</a>
+            <a href="#" id="logout">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <h2>View Applications</h2>
+        <section class="auth-form">
+            <form id="search-application" onsubmit="searchApplications(event)">
+                <label for="student-name">Search by Student Name:</label>
+                <input type="text" id="student-name" name="student-name">
+                <button type="submit">Search</button>
+            </form>
+            <div id="application-list">
+                <!-- Dynamic applications will be inserted here -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Internship Management System</p>
+    </footer>
+    <script src="../public/js/auth.js"></script>
+</body>
+</html>
