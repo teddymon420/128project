@@ -1,16 +1,27 @@
 const express = require('express');
 const mysql = require('mysql2');
+const path = require('path');
 const app = express();
 
-// Middleware to parse form data
+// Serve admin directory
+app.use('/admin', express.static(path.join(__dirname, '../../admin')));
+console.log('Admin static path resolved to:', path.join(__dirname, '../../admin'));
+
+// Serve user directory
+app.use('/user', express.static(path.join(__dirname, '../../user')));
+console.log('User static path resolved to:', path.join(__dirname, '../../user'));
+
+// Serve public directory for JS and images
+app.use('/public', express.static(path.join(__dirname, '../../public')));
+console.log('Public static path resolved to:', path.join(__dirname, '../../public'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Database connection
 const db = mysql.createConnection({
   host: 'localhost',
-  user: 'app_user',
-  password: 'NewSecurePassword123',
+  user: 'root',
+  password: 'YourSecurePassword123',
   database: 'internship_management'
 });
 
@@ -19,12 +30,17 @@ db.connect((err) => {
   console.log('Connected to MySQL!');
 });
 
+
+
+
 // Student signup
 app.post('/signup', (req, res) => {
   const { full_name, email, password } = req.body;
+  console.log('Received data:', req.body); // Debug log
   db.query('INSERT INTO students (full_name, email, password) VALUES (?, ?, ?)', 
     [full_name, email, password], (err, results) => {
     if (err) {
+      console.error('Database error:', err); // Debug log
       res.json({ success: false, message: 'Error signing up' });
     } else {
       res.json({ success: true, message: 'Signup successful' });
